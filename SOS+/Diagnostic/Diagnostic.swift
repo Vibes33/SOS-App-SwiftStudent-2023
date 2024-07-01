@@ -15,64 +15,64 @@ struct DiagnosticView: View {
     @State private var age = ""
     @State private var sex = ""
     @State private var bloodGroup = ""
-    @State private var consciousness = "Conscient"
+    @State private var consciousness = "Aware"
     @State private var newLesion = ""
     @State private var newDeformedLimb = ""
     @State private var lesions: [String] = []
     @State private var deformedLimbs: [String] = []
-    @State private var accidentType = "Voiture"
+    @State private var accidentType = "Car accident"
     @State private var accidentDetails = ""
     @State private var country = "France"
-    @State private var isBleeding = "Non"
+    @State private var isBleeding = "No"
     @State private var isPresentingMessageComposeView = false
-    @State private var selectedLesion = "Cou"
-    @State private var selectedDeformedLimb = "Cou"
+    @State private var selectedLesion = "neck"
+    @State private var selectedDeformedLimb = "neck"
 
-    let sexes = ["Homme", "Femme"]
-    let bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Non renseigné"]
-    let consciousnessStates = ["Conscient", "Inconscient"]
-    let accidentTypes = ["Voiture", "Chute", "Malaise", "..."]
-    let limbs = ["Bras droit", "Bras gauche", "Jambe droite", "Jambe gauche"]
-    let bleedingOptions = ["Oui", "Non"]
-    let countries = ["France", "USA", "Australie"]
+    let sexes = ["Man", "Women"]
+    let bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Unknown"]
+    let consciousnessStates = ["Aware", "Unconscious"]
+    let accidentTypes = ["Car accident", "Fall", "Malaise", "..."]
+    let limbs = ["Right arm", "Left arm", "Right leg", "Left leg", "chest"]
+    let bleedingOptions = ["Yes", "No"]
+    let countries = ["France", "USA", "Australia"]
 
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Informations personnelles")) {
-                    TextField("Prénom", text: $firstName)
-                    TextField("Nom", text: $lastName)
+                Section(header: Text("Personnal information")) {
+                    TextField("Name", text: $firstName)
+                    TextField("Surname", text: $lastName)
                     TextField("Age", text: $age)
                         .keyboardType(.numberPad)
-                    Picker("Sexe", selection: $sex) {
+                    Picker("Sex", selection: $sex) {
                         ForEach(sexes, id: \.self) { sex in
                             Text(sex)
                         }
                     }
-                    Picker("Groupe sanguin", selection: $bloodGroup) {
+                    Picker("Blood Group", selection: $bloodGroup) {
                         ForEach(bloodGroups, id: \.self) { group in
                             Text(group)
                         }
                     }
                 }
 
-                Section(header: Text("Informations médicales")) {
+                Section(header: Text("Medic information")) {
                     
-                    Picker("Saignements", selection: $isBleeding) {
+                    Picker("Bleeding", selection: $isBleeding) {
                                           ForEach(bleedingOptions, id: \.self) { option in
                                               Text(option)
                                           }
                                       }
                                   
 
-                    Picker("État", selection: $consciousness) {
+                    Picker("State", selection: $consciousness) {
                         ForEach(consciousnessStates, id: \.self) { state in
                             Text(state)
                         }
                     }
                     
                     HStack {
-                        TextField("Ajouter une lésion", text: $newLesion)
+                        TextField("Add a lesion", text: $newLesion)
                         Button(action: {
                             if !newLesion.isEmpty {
                                 lesions.append(newLesion)
@@ -88,7 +88,7 @@ struct DiagnosticView: View {
                     }.onDelete(perform: deleteLesion)
                     
                     HStack {
-                        TextField("Ajouter un membre déformé", text: $newDeformedLimb)
+                        TextField("Add a deformed limb", text: $newDeformedLimb)
                         Button(action: {
                             if !newDeformedLimb.isEmpty {
                                 deformedLimbs.append(newDeformedLimb)
@@ -107,17 +107,17 @@ struct DiagnosticView: View {
                 
          
 
-                Section(header: Text("Détails de l'accident")) {
-                    Picker("Type d'accident", selection: $accidentType) {
+                Section(header: Text("Accident Details")) {
+                    Picker("Kind of accident", selection: $accidentType) {
                         ForEach(accidentTypes, id: \.self) { type in
                             Text(type)
                         }
                     }
-                    TextField("Détails de l'accident", text: $accidentDetails)
+                    TextField("Accident details", text: $accidentDetails)
                 }
                 
                 Section(header: Text("Pays")) {
-                    Picker("Sélectionnez le pays", selection: $country) {
+                    Picker("Select a country", selection: $country) {
                         ForEach(countries, id: \.self) { country in
                             Text(country)
                         }
@@ -127,7 +127,7 @@ struct DiagnosticView: View {
                 Button(action: {
                     self.isPresentingMessageComposeView = true
                 }) {
-                    Text("Envoyer aux autorités")
+                    Text("Send")
                         .foregroundColor(Color.green)
                         .accessibilityLabel("Envoyer aux autorités")
                 }
@@ -149,6 +149,12 @@ struct DiagnosticView: View {
         deformedLimbs.remove(atOffsets: offsets)
     }
 }
+
+
+#Preview {
+    DiagnosticView()
+}
+
 
 
 #Preview {
