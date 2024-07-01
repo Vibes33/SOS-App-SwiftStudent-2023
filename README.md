@@ -8,6 +8,8 @@ Lots of projects to come here, this is also my first use of Github so don't hesi
 
 So here's a little presentation of the app and its features! 
 
+( Only available for iOS user ATM )
+
 
 
 ![image](https://github.com/Vibes33/SOS-/assets/123171984/8c5e8454-dcf9-4eff-940c-4a7def231f67)
