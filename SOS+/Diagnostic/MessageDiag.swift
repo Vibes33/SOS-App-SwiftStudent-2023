@@ -18,7 +18,7 @@ struct MessageView: UIViewControllerRepresentable {
     var emergencyNumber: String {
         switch country {
         case "France":
-            return "112"
+            return "114"
         case "USA":
             return "911"
         case "Australie":
@@ -51,7 +51,7 @@ struct MessageView: UIViewControllerRepresentable {
         }
 
         // Create a personal SMS
-        let messageBody = "Bonjour, une personne est en situation d'urgence à cette localisation : \(userLocation), elle s'appelle \(firstName) \(lastName), c'est un(e) \(sex). La personne est \(consciousness), le type d'accident est \(accidentType), les détails de l'accident sont les suivants : \(accidentDetails). Lésions : \(lesions.joined(separator: ", ")), Membres déformés : \(deformedLimbs.joined(separator: ", ")), la personne \(isBleeding == "Oui" ? "saigne" : "ne semble pas saigner"). Message envoyé au numéro suivant : \(emergencyNumber), si il s'agit d'une erreur merci de faire suivre ce message au numéro mentionné. Message envoyé depuis l'application SOS+."
+        let messageBody = "Hello, a person is in emergency situation at this localisation : \(userLocation), it is called \(firstName) \(lastName), its a \(sex). The person is \(consciousness), The kind of the accident is : \(accidentType), Accident Details : \(accidentDetails). Lesion : \(lesions.joined(separator: ", ")), deformed limbs  : \(deformedLimbs.joined(separator: ", ")), The person \(isBleeding == "Oui" ? "bleeds" : "does not appear to be bleeding"). Message send at this number : \(emergencyNumber), if this is an error, please forward this message to the number given. Message sent from the SOS+ application."
 
         // Update number and message
         messageComposeVC.recipients = [emergencyNumber]
@@ -77,3 +77,4 @@ struct MessageView: UIViewControllerRepresentable {
         }
     }
 }
+
