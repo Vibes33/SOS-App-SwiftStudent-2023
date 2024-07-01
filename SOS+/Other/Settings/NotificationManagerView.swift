@@ -197,8 +197,8 @@ struct SettingsView: View {
                     }
                     .alert(isPresented: $showAlert) {
                         Alert(
-                            title: Text("Redirection vers les paramètres"),
-                            message: Text("La localisation ne peut pas être désactivée ici. Veuillez aller dans les paramètres de l'appareil pour la désactiver."),
+                            title: Text("Redirect to parameters"),
+                            message: Text("Localisation cannot be deactivated here. Please go to the device settings to disable it."),
                             primaryButton: .default(Text("OK"), action: {
                                 // Redirigez les utilisateurs vers les paramètres de l'appareil.
                                 if let url = URL(string: UIApplication.openSettingsURLString) {
@@ -267,7 +267,7 @@ struct SettingsView: View {
 
                                 HStack {
                                     Button(action: {
-                                        let url = URL(string: "mailto:sos+contact@gmail.com")!
+                                        let url = URL(string: "mailto:ryandelepine@icloud.com")!
                                         if UIApplication.shared.canOpenURL(url) {
                                             UIApplication.shared.open(url)
                                         }
