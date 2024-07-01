@@ -53,29 +53,8 @@ struct FirstAidGuide4: View {
             
          Spacer(minLength: 20)
             
-            Button(action: {
-                showFirstAidView = true
-            }) {
-                HStack {
-                    Spacer()
-                       Text("How to deal with specific situations ")
-                           .font(.headline)
-                           .foregroundColor(.white)
-                    Spacer()
-                       Image(systemName: "arrow.right.circle.fill")
-                           .foregroundColor(.green)
-                }
-                .padding()
-                    .background(Color.black)
-                    .cornerRadius(15)
-            }
-            .sheet(isPresented: $showFirstAidView) {
-                FirstAidView()
-            }
-        }
-        .padding(.top, 20)
-        .background(Color(.systemGray6))
-        .foregroundColor(.white)
+      
+    }
     }
     
     
@@ -113,3 +92,4 @@ struct FirstAidGuide4: View {
         }
     }
 }
+
